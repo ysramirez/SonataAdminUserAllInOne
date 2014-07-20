@@ -6,6 +6,9 @@ security:
         SONATA:
             - ROLE_SONATA_PAGE_ADMIN_PAGE_EDIT  # if you are using acl then this line must be commented
 
+    encoders:
+            "FOS\UserBundle\Model\UserInterface": sha512
+
     providers:
         fos_userbundle:
             id: fos_user.user_manager
@@ -75,3 +78,4 @@ security:
         # Change these rules to adapt them to your needs
         - { path: ^/admin/, role: [ROLE_ADMIN, ROLE_SONATA_ADMIN] }
         - { path: ^/.*, role: IS_AUTHENTICATED_ANONYMOUSLY }
+
